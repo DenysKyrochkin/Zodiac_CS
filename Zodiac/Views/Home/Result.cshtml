@@ -1,0 +1,24 @@
+﻿@model Zodiac.Models.Dates
+@{
+    ViewData["Title"] = "Result";
+}
+@{
+    Layout = "_Layout";
+}
+
+<div class="result text-center">
+    @if (Model.Age > 135 || Model.Age < 0)
+    {
+        <h1>Input correct date.</h1>
+    }
+    else
+    {
+        <h1>@Model.Birthday.ToShortDateString()</h1>
+        @if (Model.isBirthday())
+        {
+            <h1>Happy Birthday to you!</h1>
+        }
+        <p>You are @Model.Age years old.</p>
+        <p>You are @Model.ZodiacC in the Chinese zodiac and @Model.ZodiacW in Western.</p>
+    }
+</div>
