@@ -69,7 +69,7 @@ namespace Zodiac.Models
         private string GetZodiacW()
         {
             int month = Birthday.Month;
-            int day = Birthday.Year;
+            int day = Birthday.Day;
             switch (month)
             {
                 case 1:
