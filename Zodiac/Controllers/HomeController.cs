@@ -1,4 +1,4 @@
-﻿using Zodiac.Models;
+using Zodiac.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Zodiac.Controllers
@@ -15,9 +15,20 @@ namespace Zodiac.Controllers
         {
             Dates dates = new Dates(
                 HttpContext.Request.Form["Date"]);
+            if(dates.Age > 135 || dates.Age < 0)
+            {
+                return Redirect("/Home/Index");
+            }
+            if (dates.isBirthday())
+            {
+                ViewBag.Whishes = "Happy Birthday to you!";
+            }
+          
             return View(dates);
         }
 
    
     }
 }
+
+
